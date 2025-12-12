@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Bids - Professional Home Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            background: white;
+            color: #1e3c72;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.5rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: -50px auto 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .cta-header {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .ai-intro {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2a5298;
+            position: relative;
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .ai-intro p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .quote-callout {
+            background: #25D366;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .services {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 50px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .features {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 50px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+
+        .feature-text p {
+            color: #666;
+        }
+
+        .contact-footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-footer p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .phone-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .footer-whatsapp {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-section {
+                margin: -30px 20px 0;
+                padding: 30px 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">TB</div>
+                <span>Trusted Bids</span>
+            </div>
+            <a href="https://wa.me/14802576884" class="whatsapp-btn">
+                <span class="whatsapp-icon">📱</span>
+                Call Now on WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Home Services You Can Trust</h1>
+            <p class="hero-subtitle">Quality repairs and renovations for residential and commercial properties</p>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <div class="ai-badge">✨ AI Assistant</div>
+        <h2 class="cta-header">Need Home Repairs or Renovations?</h2>
+        <div class="ai-intro">
+            <p>Welcome to Trusted Bids! Whether you're a homeowner looking to renovate your kitchen, repair a leaky roof, or upgrade your bathroom, or a business owner needing commercial property maintenance, we're here to help.</p>
+            <p>Our network of trusted, verified contractors specializes in both residential and commercial projects of all sizes. From small repairs to complete renovations, we connect you with experienced professionals who deliver quality work at competitive prices.</p>
+            <p><strong>Don't wait—call us today to discuss your project and receive a free, no-obligation quote tailored to your specific needs!</strong></p>
+        </div>
+        <div class="quote-callout">
+            📞 Call for a FREE Quote or Estimate!
+        </div>
+    </div>
+
+    <section class="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Residential Repairs</h3>
+                    <p>From plumbing and electrical work to HVAC maintenance and appliance repairs, we handle all your home repair needs with expertise and care.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Home Renovations</h3>
+                    <p>Transform your living space with kitchen remodels, bathroom upgrades, basement finishing, and complete home makeovers designed to your specifications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Services</h3>
+                    <p>Keep your business running smoothly with our commercial property maintenance, office renovations, and facility repair services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Interior & Exterior</h3>
+                    <p>Painting, flooring, roofing, siding, and landscaping services to enhance both the inside and outside of your property.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency services available for urgent repairs including water damage, electrical issues, and structural concerns.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Free Estimates</h3>
+                    <p>Get detailed, transparent quotes before any work begins. No hidden fees, no surprises—just honest pricing and quality service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <h2>Why Choose Trusted Bids?</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">
+                        <h3>Verified Contractors</h3>
+                        <p>All our contractors are licensed, insured, and thoroughly vetted</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-text">
+                        <h3>Quality Guaranteed</h3>
+                        <p>We stand behind every project with our satisfaction guarantee</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💵</div>
+                    <div class="feature-text">
+                        <h3>Competitive Pricing</h3>
+                        <p>Get the best value with transparent, fair pricing</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                        <h3>Fast Response</h3>
+                        <p>Quick turnaround times and flexible scheduling</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-text">
+                        <h3>Fully Insured</h3>
+                        <p>Protected projects with comprehensive insurance coverage</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📞</div>
+                    <div class="feature-text">
+                        <h3>Easy Communication</h3>
+                        <p>Reach us instantly via WhatsApp or phone call</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-footer">
+        <h2>Ready to Get Started?</h2>
+        <p>Call us now for your free consultation and quote!</p>
+        <div class="phone-number">📱 (480) 257-6884</div>
+        <p>Available for WhatsApp calls and messages</p>
+        <a href="https://wa.me/14802576884" class="whatsapp-btn footer-whatsapp">
+            <span class="whatsapp-icon">📱</span>
+            Contact Us on WhatsApp
+        </a>
+        <p style="margin-top: 40px; opacity: 0.8; font-size: 0.9rem;">© 2024 TrustedBids.org - Professional Home Services</p>
+    </section>
+</body>
+</html>
